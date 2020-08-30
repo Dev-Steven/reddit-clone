@@ -11,17 +11,17 @@ router.route('/add').post((req, res) => {
 	const title = req.body.title;
 	const author = req.body.author;
 	const body = req.body.body;
-	const comments = req.body.comments;
-	const date = Date.parse(req.body.data);
-	const meta = req.body.meta;
+	// const comments = req.body.comments;
+	const date = Date.parse(req.body.date);
+	// const meta = req.body.meta;
 
 	const newPost = new Post({
 		title,
 		author,
 		body,
-		comments,
+		// comments,
 		date,
-		meta,
+		// meta,
 	});
 
 	newPost

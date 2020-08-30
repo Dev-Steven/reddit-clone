@@ -6,13 +6,13 @@ const postSchema = new Schema(
 		title: { type: String, required: true },
 		author: { type: String, required: true },
 		body: { type: String, required: true },
-		comments: [{ body: String, date: Date }],
+		// comments: [{ body: String, date: Date }],
 		date: { type: Date, default: Date.now },
-		meta: {
-			upvotes: Number,
-			downvotes: Number,
-			favs: Number,
-		},
+		// meta: {
+		// 	upvotes: Number,
+		// 	downvotes: Number,
+		// 	favs: Number,
+		// },
 	},
 	{
 		timestamps: true,
