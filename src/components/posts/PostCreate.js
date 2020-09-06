@@ -1,5 +1,5 @@
-import React from 'react';
-import { posts } from '../../axios/urls_axios';
+import React, { useState } from 'react';
+import { posts } from '../../axios';
 import { withRouter } from 'react-router-dom';
 
 import './PostCreate.scss';
@@ -13,7 +13,7 @@ const initialFormData = Object.freeze({
 
 const PostCreate = props => {
 	// initialize useState
-	const [formData, updateFormData] = React.useState(initialFormData);
+	const [formData, updateFormData] = useState(initialFormData);
 
 	const handleChange = e => {
 		updateFormData({

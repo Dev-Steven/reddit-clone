@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { posts } from '../../axios';
 
 const PostShow = () => {
-	return (
-		<div>
-			<h1>All Posts</h1>
-			<div className='card'>
+	const [allPosts, setPosts] = useState([]);
+
+	useEffect(() => {
+		getPosts();
+	});
+
+	const getPosts = () => {
+		posts
+			.get('/')
+			.then(res => setPosts(res.data))
+			.catch(err => console.log(err));
+	};
+
+	const renderCard = post => {
+		return (
+			<div className='card' key={post._id}>
 				<div className='card-body'>
-					<h5 className='card-title'>Test</h5>
-					<h6 className='card-subtitle mb-2 text-muted'>Subtitle</h6>
-					<p className='card-text'>
-						Some quick example text to build on the card title and
-						make up the bulk of the card's content.
-					</p>
+					<p className='card-text'>Posted by {post.author}</p>
+					<h5 className='card-title'>{post.title}</h5>
+					<p className='card-text'>{post.body}</p>
 					<a href='#' className='card-link'>
 						Card link
 					</a>
@@ -20,6 +30,13 @@ const PostShow = () => {
 					</a>
 				</div>
 			</div>
+		);
+	};
+
+	return (
+		<div>
+			<h1>All Posts</h1>
+			{allPosts.map(renderCard)}
 		</div>
 	);
 };
