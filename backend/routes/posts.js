@@ -62,4 +62,16 @@ router.route('/update/:id').post((req, res) => {
 		.catch(err => res.status(400).json('Error: ' + err));
 });
 
+// upvote post
+router.route('/vote/:id').post((req, res) => {
+	Post.updateOne(
+		{ _id: req.params.id },
+		{
+			$set: { votes: req.body.votes },
+		}
+	)
+		.then(console.log('successful vote update'))
+		.catch(err => console.log(err));
+});
+
 module.exports = router;

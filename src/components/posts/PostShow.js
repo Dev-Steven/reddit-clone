@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { posts } from '../../axios';
 
+import './PostShow.scss';
+
 const PostShow = () => {
 	const [allPosts, setPosts] = useState([]);
 
@@ -15,6 +17,32 @@ const PostShow = () => {
 			.catch(err => console.log(err));
 	};
 
+	const upVotes = (id, votes) => {
+		// when user clicks add 1 to total votes
+		votes++;
+		posts
+			.post(`/vote/${id}`, { votes })
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+
+	const downVotes = (id, votes) => {
+		// when user clicks subtract 1 from total votes
+		votes--;
+		posts
+			.post(`/vote/${id}`, { votes })
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+
 	const renderCard = post => {
 		return (
 			<div className='card' key={post._id}>
@@ -22,12 +50,22 @@ const PostShow = () => {
 					<p className='card-text'>Posted by {post.author}</p>
 					<h5 className='card-title'>{post.title}</h5>
 					<p className='card-text'>{post.body}</p>
-					<a href='#' className='card-link'>
-						Card link
-					</a>
-					<a href='#' className='card-link'>
-						Another link
-					</a>
+					<div>
+						<p>{post.votes}</p>
+						<button
+							className='btn btn-primary buttons'
+							onClick={() => upVotes(post._id, post.votes)}
+						>
+							Upvote
+						</button>
+						<button
+							className='btn btn-danger buttons'
+							onClick={() => downVotes(post._id, post.votes)}
+						>
+							Downvote
+						</button>
+					</div>
+					<a href=''>Comments</a>
 				</div>
 			</div>
 		);

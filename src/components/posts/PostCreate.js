@@ -29,6 +29,7 @@ const PostCreate = props => {
 			.post('/add', formData)
 			.then(function (res) {
 				console.log(res);
+				toHome('/');
 			})
 			.catch(function (err) {
 				console.log(err);

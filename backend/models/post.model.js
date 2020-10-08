@@ -8,11 +8,8 @@ const postSchema = new Schema(
 		body: { type: String, required: true },
 		// comments: [{ body: String, date: Date }],
 		date: { type: Date, default: Date.now },
-		// meta: {
-		// 	upvotes: Number,
-		// 	downvotes: Number,
-		// 	favs: Number,
-		// },
+		votes: { type: Number, default: 0 },
+		// favs: Number,
 	},
 	{
 		timestamps: true,
