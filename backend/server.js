@@ -27,3 +27,5 @@ app.use('/users', usersRouter);
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 });
+
+// *** to start server file: cd backend then run node server
