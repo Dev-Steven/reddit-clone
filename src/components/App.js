@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './navbar/Navbar';
 import Home from './home/Home';
 import PostCreate from './posts/PostCreate';
+import SignUp from './login/signUp';
 import { BrowserRouter, Switch } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +17,7 @@ const App = () => {
 					<Switch>
 						<Home exact path='/' />
 						<PostCreate path='/createpost' />
+						<SignUp path='/signup' />
 					</Switch>
 				</div>
 			</div>

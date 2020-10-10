@@ -1,7 +1,12 @@
 import React from 'react';
 import './Navbar.scss';
+import { withRouter } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = props => {
+	const toRoute = path => {
+		props.history.push(path);
+	};
+
 	return (
 		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 			<a className='navbar-brand' href='#'>
@@ -85,7 +90,10 @@ const Navbar = () => {
 								Night Mode
 							</a>
 							<div className='dropdown-divider'></div>
-							<a className='dropdown-item' href='#'>
+							<a
+								className='dropdown-item'
+								onClick={() => toRoute('/signup')}
+							>
 								Log Out
 							</a>
 						</div>
@@ -96,4 +104,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default withRouter(Navbar);
