@@ -7,7 +7,7 @@ const SignUp = () => {
 			<div className='row'>
 				<div className='col'>
 					<img
-						src='https://img.favpng.com/4/2/8/computer-icons-reddit-logo-website-png-favpng-hMmUQ5KAUjd27EWLvNwpuvW5Q.jpg'
+						src='https://miro.medium.com/max/3200/1*NrGwC1BpEBeMEgRQ3ZhbkQ.jpeg'
 						width='515'
 						alt='reddit logo'
 					/>
