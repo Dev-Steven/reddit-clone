@@ -6,21 +6,32 @@ const passport = require('passport');
 
 require('dotenv').config();
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
-
-const connection = mongoose.connection;
-connection.once('open', () => {
-	console.log('Mongodb connection successful!');
-});
-
 const postsRouter = require('./routes/posts');
 const usersRouter = require('./routes/users');
+
+const app = express();
+
+// Bodyparser middleware
+app.use(
+	bodyParser.urlencoded({
+		extended: false,
+	})
+);
+
+app.use(bodyParser.json());
+
+// const uri = process.env.ATLAS_URI;
+const db = require('./config/keys').mongoURI;
+mongoose
+	.connect(db, { useNewUrlParser: true, useCreateIndex: true })
+	.then(() => console.log('MongoDB successfully connected'))
+	.catch(err => console.log(err));
+
+// Passport Middleware
+app.use(passport.initialize());
+
+// Passport config
+require('./config/passport')(passport);
 
 // Routes
 app.use('/posts', postsRouter);
@@ -32,3 +43,11 @@ app.listen(port, () => {
 });
 
 // *** to start server file: cd backend then run node server
+
+// app.use(cors());
+// app.use(express.json());
+
+// const connection = mongoose.connection;
+// connection.once('open', () => {
+// 	console.log('Mongodb connection successful!');
+// });
