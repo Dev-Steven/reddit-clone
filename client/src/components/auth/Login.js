@@ -89,8 +89,9 @@ class Login extends Component {
 											errors.email ||
 											errors.emailnotfound,
 									})}
+									placeholder='Email'
 								/>
-								<label htmlFor='email'>Email</label>
+								{/* <label htmlFor='email'>Email</label> */}
 								<span className='red-text'>
 									{errors.email}
 									{errors.emailnotfound}
@@ -108,8 +109,9 @@ class Login extends Component {
 											errors.password ||
 											errors.passwordincorrect,
 									})}
+									placeholder='Password'
 								/>
-								<label htmlFor='password'>Password</label>
+								{/* <label htmlFor='password'>Password</label> */}
 								<span className='red-text'>
 									{errors.password}
 									{errors.passwordincorrect}
