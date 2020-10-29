@@ -87,8 +87,9 @@ class Register extends Component {
 									className={classnames('', {
 										invalid: errors.name,
 									})}
+									placeholder='Name'
 								/>
-								<label htmlFor='name'>Name</label>
+								{/* <label htmlFor='name'>Name</label> */}
 								<span className='red-text'>{errors.name}</span>
 							</div>
 							<div className='input-field col s12'>
@@ -101,8 +102,9 @@ class Register extends Component {
 									className={classnames('', {
 										invalid: errors.email,
 									})}
+									placeholder='email'
 								/>
-								<label htmlFor='email'>Email</label>
+								{/* <label htmlFor='email'>Email</label> */}
 								<span className='red-text'>{errors.email}</span>
 							</div>
 							<div className='input-field col s12'>
@@ -115,8 +117,9 @@ class Register extends Component {
 									className={classnames('', {
 										invalid: errors.password,
 									})}
+									placeholder='password'
 								/>
-								<label htmlFor='password'>Password</label>
+								{/* <label htmlFor='password'>Password</label> */}
 								<span className='red-text'>
 									{errors.password}
 								</span>
@@ -131,10 +134,11 @@ class Register extends Component {
 									className={classnames('', {
 										invalid: errors.password2,
 									})}
+									placeholder='Confirm Password'
 								/>
-								<label htmlFor='password2'>
+								{/* <label htmlFor='password2'>
 									Confirm Password
-								</label>
+								</label> */}
 								<span className='red-text'>
 									{errors.password2}
 								</span>
@@ -149,9 +153,10 @@ class Register extends Component {
 										borderRadius: '3px',
 										letterSpacing: '1.5px',
 										marginTop: '1rem',
+										backgroundColor: 'rgb(255, 69, 0)',
 									}}
 									type='submit'
-									className='btn btn-large waves-effect waves-light hoverable blue accent-3'
+									className='btn btn-large waves-effect waves-light hoverable accent-3'
 								>
 									Sign up
 								</button>

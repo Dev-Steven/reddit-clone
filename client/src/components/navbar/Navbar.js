@@ -13,7 +13,12 @@ class Navbar extends Component {
 							}}
 							className='col s5 brand-logo center black-text'
 						>
-							<i className='material-icons'>face</i>
+							<i
+								style={{ color: 'rgb(255, 69, 0)' }}
+								className='material-icons'
+							>
+								face
+							</i>
 							Seddit
 						</Link>
 					</div>
