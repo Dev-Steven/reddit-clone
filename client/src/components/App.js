@@ -11,6 +11,7 @@ import Navbar from './navbar/Navbar';
 import Landing from './Landing';
 import Register from './auth/Register';
 import Login from './auth/Login';
+import Dashboard from './dashboard/Dashboard';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -43,6 +44,7 @@ class App extends Component {
 						<Route exact path='/' component={Landing} />
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/login' component={Login} />
+						<Route exact path='/dashboard' component={Dashboard} />
 					</div>
 				</Router>
 			</Provider>
