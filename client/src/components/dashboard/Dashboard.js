@@ -5,7 +5,7 @@ class Dashboard extends Component {
 		return (
 			<div>
 				Dashboard
-				<p>welcome!</p>
+				<p>Welcome to the dashboard!</p>
 			</div>
 		);
 	}
